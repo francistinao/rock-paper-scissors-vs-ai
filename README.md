@@ -1,4 +1,4 @@
-<h1>Rock Paper Scissors AI</h1>
+<h1>Rock Paper Scissors vs AI</h1>
 <hr>
 <img style="width: 400px" src="https://francistinao.tech/images/rps.jpg">
 <hr>
