@@ -29,7 +29,7 @@ const ai = ['rock','paper','scissors'];
 
 buttons.forEach(button => {
     //Added an event for each button which is click
-    button.onclick = () => {
+    button.addEventListener("click", (e) => {
         //when button is clicked, following statements will be executed
         //Will write a variable to store the keys and value of the object 
         //based on the value of each buttons from HTML 
@@ -137,7 +137,7 @@ const gameScore = (ai) => {
  //working but there are few bugs, will fix that sooner or later
 
  //for the reset button
-resetBtn.onclick = () => {
+resetBtn.addEventListener("click", () => {
     resetGame();
 }
 
