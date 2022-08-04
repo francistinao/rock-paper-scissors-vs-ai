@@ -1,0 +1,102 @@
+/* Poppins - Bold 
+Font weight: 700
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+:root {
+    --background-color: #0C0C0C;
+    --score-bgcolor: #1E1E1E;
+    --font-color: #fff;
+}
+
+* {
+    font-family: 'Poppins',sans-serif;
+    font-weight: 700;
+}
+
+body {
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+.hero {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+h4 {
+    text-align: center;
+    color: var(--font-color);
+}
+
+.container {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.score-tab {
+    width: 92%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    background-color: var(--score-bgcolor);
+    border-radius: 10px;
+    padding: 0 40px 0 40px;
+    margin: 70px 0 25px 0;
+}
+
+.score-tab > div {
+    display: flex;
+    gap: 15px;
+}
+
+.score-tab h1 {
+    font-size: 25px;
+    color: var(--font-color);
+}
+
+.display {
+    width: 100%;
+}
+
+.display > h1 {
+    color: var(--font-color);
+    font-size: 50px;
+    margin: 5px;
+}
+
+.display > h1:nth-child(2) {
+    text-align: right;
+}
+
+.display > h1:last-child {
+    text-align: center;
+    font-size: 100px;
+}
+
+.play-buttons {
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(to right, #3300FF, #FF00F5, #FF008A);
+    border-radius:20px;
+    display: flex;
+    flex-direction: space-evenly;
+    gap: 20px;
+    padding: 25px 10px 25px 10px;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border: 2px solid rgb(54, 54, 54);
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+button:hover {
+    background: rgb(213, 213, 213);
+}
