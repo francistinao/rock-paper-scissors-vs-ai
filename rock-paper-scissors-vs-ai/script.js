@@ -22,20 +22,22 @@ const val = {
 }
 
 //The value from the object will be stored in this variable
-let myChoice = 0 //<- 
+let myChoice = 0 //<-
+let myPoint = 0, 
+aiPoint = 0 
 
 //AI's choices
 const ai = ['rock','paper','scissors'];
 
 buttons.forEach(button => {
     //Added an event for each button which is click
-    button.addEventListener("click", (e) => {
+    button.onclick = () => {
         //when button is clicked, following statements will be executed
         //Will write a variable to store the keys and value of the object 
         //based on the value of each buttons from HTML 
         myChoice = Number(val[button.value]);
         randomAI(ai);
-        gameScore(ai);
+        gameScore(ai,myPoint,aiPoint);
     }
 })
 
@@ -58,14 +60,22 @@ const randomAI = (ai) => {
     return ai[randomNumber];
 }
 
+const myPointIncrement = () => {
+    myPoint = myPoint + 1;
+    myScore.innerText = myPoint
+}
+
+const aiPointIncrement = () => {
+    aiPoint = aiPoint + 1;
+    aiScore.innerText = aiPoint
+}
 
 //Next is the score function
-const gameScore = (ai) => {
+const gameScore = (ai,myPoint,aiPoint) => {
     //Display will also be returned here 
     let myChoiceDisplay = "",
     aiChoiceDisplay = "",
-    winner = "",
-    myPoint = 0, aiPoint = 0
+    winner = ""
 
     /* Conditions part
         -Evaluate first all the choices of the user and for the ai
@@ -75,37 +85,37 @@ const gameScore = (ai) => {
 
     if(myButton(myChoice) == 0 && randomAI(ai) == "paper") {
         //Mine = Rock && ai == Paper = AI wins
-        aiPoint = aiPoint + 1;
+        aiPointIncrement()
         myChoiceDisplay = "🪨"
         aiChoiceDisplay = "✋"
         winner = "AI"
     } else if(myButton(myChoice) == 0 && randomAI(ai) == "scissors") {
         //Mine = Rock and ai == scissors = I win
-        myPoint = myPoint + 1;
+        myPointIncrement()
         myChoiceDisplay = "🪨"
         aiChoiceDisplay = "✌️"
         winner = "You"
     } else if(myButton(myChoice) == 1 && randomAI(ai) == "rock") {
         //Mine == paper and ai == rock = I win
-        myPoint = myPoint + 1;
+        myPointIncrement()
         myChoiceDisplay = "✋"
         aiChoiceDisplay = "🪨"
         winner = "You"
     } else if(myButton(myChoice) == 1 && randomAI(ai) == "scissors") {
         //Mine == paper and ai == scissors = AI win
-        aiPoint = aiPoint + 1;
+        aiPointIncrement()
         myChoiceDisplay = "✋"
         aiChoiceDisplay = "✌️"
         winner = "AI"
     } else if(myButton(myChoice) == 2 && randomAI(ai) == "rock") {
         //Mine == scissors and ai == rock = AI wins
-        aiPoint = aiPoint + 1;
+        aiPointIncrement()
         myChoiceDisplay = "✌️"
         aiChoiceDisplay = "🪨"
         winner = "AI"
     } else if(myButton(myChoice) == 2 && randomAI(ai) == "paper") {
         //Mine == scissors and ai == paper = I wins
-        myPoint = myPoint + 1;
+        myPointIncrement()
         myChoiceDisplay = "✌️"
         aiChoiceDisplay = "✋"
         winner = "You"
@@ -126,18 +136,17 @@ const gameScore = (ai) => {
         aiChoiceDisplay = "✌️"
         winner = "No one"
     }
-    //results display
-    aiScore.innerText = `${aiPoint}`
-    myScore.innerText = `${myPoint}`
     myDisplay.innerText = "You picked " + myChoiceDisplay
     aiDisplay.innerText = "AI Picked" + aiChoiceDisplay
     winnerDisplay.innerText = winner + " win!";
+    console.log("My Score: " + myPoint);
+    console.log("AI Score: " + aiPoint);
  }
 
  //working but there are few bugs, will fix that sooner or later
 
  //for the reset button
-resetBtn.addEventListener("click", () => {
+resetBtn.onclick = () => {
     resetGame();
 }
 
@@ -148,6 +157,3 @@ const resetGame = () => {
     aiDisplay.innerText = ""
     winnerDisplay.innerText = ""
 }
-
-
-
