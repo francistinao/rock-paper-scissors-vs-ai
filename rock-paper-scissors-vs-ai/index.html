@@ -20,18 +20,23 @@
                     <h1 id="ai-score"></h1>
                 </div>
             </div>
-            <div class="display">
+            <div class="display" id="display">
                 <h1 id="your-display"></h1>
                 <h1 id="ai-display"></h1>
                 <h1 id="winner"></h1>
             </div>
-            <div class="play-buttons">
+            <div class="play-buttons" id="play-buttons">
                 <button class="btn" value="rock">🪨</button>
                 <button class="btn" value="paper">✋</button>
                 <button class="btn" value="scissors">✌️</button>
                 <button id="reset-btn">🔴</button>
             </div>
-            <h4>Choose buttons to play</h4>
+            <div class="game-over" id="gameoverDisplay">
+                <h1>Game Over</h1>
+                <h3 class="winner-display" id="winner-display"></h3>
+                <a href ="index.html" class="play-again">Play again</a>
+            </div>
+            <h4 id="choose-btns">Choose buttons to play</h4>
         </div>
     </div>
 </body>
