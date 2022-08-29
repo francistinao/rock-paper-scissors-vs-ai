@@ -100,3 +100,39 @@ button {
 button:hover {
     background: rgb(213, 213, 213);
 }
+
+
+.game-over {
+    text-align: center;
+    color: #fff;
+}
+
+.game-over h1 {
+    font-size: 90px;
+    margin: 0;
+    animation: changeColor 3s infinite;
+}
+
+@keyframes changeColor {
+    0% {
+        color: #3300FF;
+    } 50% {
+        color: #FF00F5;
+    } 75% {
+        color: #FF008A;
+    } 100% {
+        color: #3300FF;
+    }
+}
+.game-over h3 {
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+.play-again {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    background-image: linear-gradient(to right, #3300FF, #FF00F5, #FF008A);
+    border-radius: 5px;
+}
