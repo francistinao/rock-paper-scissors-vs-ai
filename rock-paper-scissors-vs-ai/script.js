@@ -12,8 +12,13 @@ const aiScore = document.getElementById("ai-score");
 const myDisplay = document.getElementById("your-display");
 const aiDisplay = document.getElementById("ai-display");
 const winnerDisplay = document.getElementById("winner");
+const playBtns = document.getElementById('play-buttons');
 const buttons = document.querySelectorAll(".btn");
 const resetBtn = document.getElementById("reset-btn");
+const playersDisplay = document.getElementById('display');
+const gameOverDisplay = document.getElementById('gameoverDisplay');
+const winnerDisplayText = document.getElementById('winner-display')
+const chooseBtns = document.getElementById('choose-btns')
 //This will stand as the values of each buttons when clicked
 const val = {
     "rock" : 0,
@@ -38,6 +43,7 @@ buttons.forEach(button => {
         myChoice = Number(val[button.value]);
         randomAI(ai);
         gameScore(ai,myPoint,aiPoint);
+        gameOver();
     }
 })
 
@@ -143,7 +149,24 @@ const gameScore = (ai,myPoint,aiPoint) => {
     console.log("AI Score: " + aiPoint);
  }
 
- //working but there are few bugs, will fix that sooner or later
+
+ gameOverDisplay.style.display = "none"
+ 
+ const gameOver = () => {
+    if(myPoint !== 5 && aiPoint === 5) {
+        playersDisplay.style.display = "none";
+        playBtns.style.display = "none"
+        gameOverDisplay.style.display = "block";
+        winnerDisplayText.innerText = "🤖 is the winner"
+        chooseBtns.style.display = "none";
+    } else if(myPoint === 5 && aiPoint !== 5) {
+        playersDisplay.style.display = "none";
+        playBtns.style.display = "none"
+        gameOverDisplay.style.display = "block";
+        winnerDisplayText.innerText = "You are the winner!"
+        chooseBtns.style.display = "none";
+    }
+ }
 
  //for the reset button
 resetBtn.onclick = () => {
